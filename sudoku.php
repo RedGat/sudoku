@@ -5,36 +5,37 @@
 	<style type = "text/css"></style>
 </head>
 <body>
-<form>
+<form method = 'post'>
 	<table cellpadding="0" cellspacing="0">
 <?php
 
 $c = 0;
 
-$num = array("fila" => $fila, "col" => $col, "val" => $val);
+$num = array();
 
 for($i = 1; $i <= 9; $i++) {
-	$nums = array($fila,$col,$val);
-	$fila = rand(0,8);
-	$col = rand(0,8);
-	$nval = rand(1,9);
-	$num[] = $num;
-
-
+    $fila = rand(0, 8);
+    $col = rand(0, 8);
+    $val = rand(1, 9);
+	$nums = array("fila" => $fila, "col" => $col, "val" => $val);
+	$num[] = $nums;
 }
 
 for($i = 1; $i <= 9; $i++) {
 	echo "<tr>\n";
 	for($j = 1; $j <= 9; $j++) {
-		echo "\t<td style = 'border: 1px solid black'>";
+		echo "\t<td style = 'border: 1px solid black width = 50px'> ";
 
-		if( $i = $num["fila"] && $j == $num["col"])
-			echo $num["val"];
-		else
-			echo"<input type = 'number' name = '$c'>";
-
+        $val = null;
+        for($k = 0; $k < count($num); $k++) {
+            $point = $num[$k];
+            if($i == $point["fila"] && $j == $point["col"]) {
+                $val = $point["val"];
+            }
+        }
+		echo "<input type = 'number' name = '$c' value = '$val' style = 'width: 50px'>";
 		
-		echo"</td>";
+		echo "</td>";
 		$c++;
 		
 	}
@@ -48,10 +49,6 @@ for($i = 1; $i <= 9; $i++) {
 </table>
 <input type = "submit" />
 </form>
-
-<?php 
-	echo "hola";
-?>
 </body>
 
 </html>
