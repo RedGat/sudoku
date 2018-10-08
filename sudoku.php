@@ -9,13 +9,12 @@
 	<table cellpadding="0" cellspacing="0">
 <?php
 
-$c = 0;
 
 $num = array();
 
 for($i = 1; $i <= 9; $i++) {
-    $fila = rand(0, 8);
-    $col = rand(0, 8);
+    $fila = rand(1, 9);
+    $col = rand(1, 9);
     $val = rand(1, 9);
 	$nums = array("fila" => $fila, "col" => $col, "val" => $val);
 	$num[] = $nums;
@@ -33,10 +32,15 @@ for($i = 1; $i <= 9; $i++) {
                 $val = $point["val"];
             }
         }
-		echo "<input type = 'number' name = '$c' value = '$val' style = 'width: 50px'>";
+        if($val) {
+        	echo "$val";	
+        }
+        else {
+        	echo "<input type = 'number' value = '$val' style = 'width: 50px'>";
+        }
+		
 		
 		echo "</td>";
-		$c++;
 		
 	}
 	echo "</tr>\n";
