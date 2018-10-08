@@ -6,7 +6,7 @@
 </head>
 <body>
 <form method = 'post'>
-	<table cellpadding="0" cellspacing="0">
+	<table cellpadding="0" cellspacing="0" border="1">
 <?php
 
 
@@ -32,6 +32,8 @@ for($i = 1; $i <= 9; $i++) {
                 $val = $point["val"];
             }
         }
+
+
         if($val) {
         	echo "$val";	
         }
